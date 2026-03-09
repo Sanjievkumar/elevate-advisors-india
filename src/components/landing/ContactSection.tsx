@@ -32,10 +32,10 @@ const ContactSection = () => {
             className="text-center mb-12"
           >
             <div className="gold-line mx-auto mb-6" />
-            <h2 className="heading-section mb-4">
+            <h2 className="heading-section mb-4" style={{ color: "hsl(var(--warm-white))" }}>
               Get Your Personalised Blueprint Pathway
             </h2>
-            <p className="text-body">
+            <p className="font-body text-base" style={{ color: "hsla(40,20%,97%,0.8)" }}>
               The information collected is for the purpose of processing your request.
             </p>
           </motion.div>

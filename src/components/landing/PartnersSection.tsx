@@ -33,7 +33,7 @@ const PartnersSection = () => {
           }}
         />
       </div>
-      <div className="section-container">
+      <div className="relative z-10 section-container">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
