@@ -6,8 +6,23 @@ const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="contact" className="py-24 md:py-32">
-      <div className="section-container">
+    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Subtle background image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, hsl(var(--background)) 0%, hsla(207,38%,17%,0.88) 30%, hsla(207,38%,17%,0.90) 70%, hsl(var(--background)) 100%)",
+          }}
+        />
+      </div>
+      <div className="relative z-10 section-container">
         <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -17,10 +32,10 @@ const ContactSection = () => {
             className="text-center mb-12"
           >
             <div className="gold-line mx-auto mb-6" />
-            <h2 className="heading-section mb-4">
+            <h2 className="heading-section mb-4" style={{ color: "hsl(var(--warm-white))" }}>
               Get Your Personalised Blueprint Pathway
             </h2>
-            <p className="text-body">
+            <p className="font-body text-base" style={{ color: "hsla(40,20%,97%,0.8)" }}>
               The information collected is for the purpose of processing your request.
             </p>
           </motion.div>
