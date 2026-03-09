@@ -120,7 +120,7 @@
 
   .card-elevated:hover {
     box-shadow: var(--shadow-card-hover);
-    transform: translateY(-2px);
+    transform: translateY(-6px);
   }
 
   .nav-glass {
