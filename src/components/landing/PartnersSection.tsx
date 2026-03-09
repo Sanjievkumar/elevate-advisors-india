@@ -17,7 +17,22 @@ const partners = [
 
 const PartnersSection = () => {
   return (
-    <section id="insights" className="py-24 md:py-32">
+    <section id="insights" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Subtle background image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1523050854058-8df90110c7f1?auto=format&fit=crop&w=1920&q=80"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, hsl(var(--background)) 0%, hsla(40,20%,96%,0.92) 30%, hsla(40,20%,96%,0.92) 70%, hsl(var(--background)) 100%)",
+          }}
+        />
+      </div>
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
