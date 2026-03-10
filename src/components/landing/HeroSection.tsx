@@ -1,8 +1,25 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const [backendStatus, setBackendStatus] = useState<string>("Connecting to backend...");
+
+  useEffect(() => {
+    // 5. Test frontend connection to the backend
+    // This fetches data from the Express server we just created
+    fetch("http://localhost:5000/api/status")
+      .then((res) => res.json())
+      .then((data) => {
+        setBackendStatus(data.message); // Should be "Backend Connected!"
+      })
+      .catch((err) => {
+        console.error("Backend connection failed:", err);
+        setBackendStatus("Backend Disconnected");
+      });
+  }, []);
+
   return (
     <section
       id="home"
@@ -51,11 +68,23 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10"
+          className="font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-4"
           style={{ color: "hsla(40,20%,97%,0.85)" }}
         >
           Future‑focused education strategist that transforms uncertainty into direction and ambition.
         </motion.p>
+
+        {/* Backend Connection Status Display */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mb-10 inline-block px-4 py-2 rounded-full border border-white/20 bg-black/20 backdrop-blur-sm"
+        >
+          <p className={`text-sm md:text-base font-medium ${backendStatus.includes('Connected') ? 'text-green-400' : 'text-yellow-400'}`}>
+            Status: {backendStatus}
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
